@@ -3,7 +3,7 @@ let income = 40000;
 let addExpenses = 'Интернет, оплата фриланс площадки, обслуживание машины, подписка на софт';
 let deposit = true;
 let mission = 12000000;
-let period = 11;
+let period = 12;
 
 console.log(typeof(money));
 
