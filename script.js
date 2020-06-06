@@ -1,8 +1,8 @@
-let money = 5000;
-let income = 4000;
-let addExpenses = 1000;
-let deposit = true;
-let mission = "Make the code";
+let money;
+let income;
+let addExpenses;
+let deposit;
+let mission;
 let period;
 
 alert("Какое-то сообщение!");
