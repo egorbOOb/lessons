@@ -24,3 +24,26 @@ console.log(addExpenses.split(', '));
 let budgetDay = 150000 + 40000 / 30;
 
 console.log(budgetDay);
+
+
+// Урок №3
+
+money = +prompt('Ваш месячный доход?');
+
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+
+deposit = confirm('Есть ли у вас депозит в банке?');
+
+let expenses1 = prompt('Введите обязательную статью расходов');
+
+let expenses2 = prompt('Введите обязательную статью расходов');
+
+let amount1 = prompt('Во сколько это обойдётся?');
+
+let amount2 = prompt('Во сколько это обойдётся?');
+
+let budGetMonth = money - Number(amount1) - Number(amount2); 
+
+let timeForMission = money / budGetMonth;
+
+console.log(Math.ceil(timeForMission));
