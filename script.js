@@ -42,8 +42,27 @@ let amount1 = prompt('Во сколько это обойдётся?');
 
 let amount2 = prompt('Во сколько это обойдётся?');
 
-let budGetMonth = money - Number(amount1) - Number(amount2); 
+let budGetMonth = money - Number(amount1) - Number(amount2)
+- Number(amount2) - Number(amount2); 
+
+console.log('budGetMonth: ', budGetMonth);
 
 let timeForMission = money / budGetMonth;
 
 console.log(Math.ceil(timeForMission));
+
+butGetDay = budGetMonth / 30;
+
+console.log('butGetDay: ', Math.floor(butGetDay));
+
+
+
+if (budgetDay >= 1200) {
+    alert('У вас высокий уровень дохода');
+} else if (1200 >= butGetDay >= 600) {
+    alert('У вас средний уровень дохода');
+} else if (budGetDay < 600){
+    alert('К сожалению у вас уовень дохода ниже среднего');
+} else if (butGetDay < 0) {
+    alert('Что-то пошло не так');
+}
