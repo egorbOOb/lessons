@@ -38,31 +38,37 @@ let expenses1 = prompt('Введите обязательную статью р�
 
 let expenses2 = prompt('Введите обязательную статью расходов');
 
-let amount1 = prompt('Во сколько это обойдётся?');
+let amount1 = +prompt('Во сколько это обойдётся?');
 
-let amount2 = prompt('Во сколько это обойдётся?');
+let amount2 = +prompt('Во сколько это обойдётся?');
 
-let budGetMonth = money - Number(amount1) - Number(amount2)
+let budgetMonth = money - Number(amount1) - Number(amount2)
 - Number(amount2) - Number(amount2); 
 
-console.log('budGetMonth: ', budGetMonth);
+console.log('Бюджет на месяц: ', budgetMonth);
 
-let timeForMission = money / budGetMonth;
+let timeForMission = money / budgetMonth;
 
-console.log(Math.ceil(timeForMission));
+console.log('Время для достижения цели:', Math.ceil(timeForMission), 'месяцев');
 
-butGetDay = budGetMonth / 30;
+budgetDay = budgetMonth / 30;
 
-console.log('butGetDay: ', Math.floor(butGetDay));
+console.log('Бюджет на день: ', Math.floor(budgetDay));
 
 
 
 if (budgetDay >= 1200) {
     alert('У вас высокий уровень дохода');
-} else if (1200 >= butGetDay >= 600) {
+    console.log('У вас высокий уровень дохода');
+} else if(budgetDay < 1200 && budgetDay >= 600){
     alert('У вас средний уровень дохода');
-} else if (budGetDay < 600){
-    alert('К сожалению у вас уовень дохода ниже среднего');
-} else if (butGetDay < 0) {
+    console.log('У вас средний уровень дохода');
+} else if(0 <= budgetDay && budgetDay < 600) {
+    alert('К сожалению у вас уровень дохода ниже среднего');
+    console.log('К сожалению у вас уровень дохода ниже среднего');
+} else if(budgetDay <= 0) {
     alert('Что-то пошло не так');
+    console.log('Что-то пошло не так');
+} else {
+    console.log('Не число');
 }
