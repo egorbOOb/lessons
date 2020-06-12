@@ -17,10 +17,10 @@ function isNumber(n) {
     };
     
 let getNumberAmounts = function() {
-    while (!isNumber(amount1) && !isNumber(amount2)) {
+    do {
         amount1 = +prompt('Во сколько это обойдётся?');
         amount2 = +prompt('Во сколько это обойдётся?');
-    }
+    } while((!isNumber(amount1) && !isNumber(amount2)))
 };
 
 let start = function() {
@@ -47,8 +47,7 @@ let expenses1 = prompt('Введите обязательную статью р�
 
 let expenses2 = prompt('Введите обязательную статью расходов');
 
-amount1 = +prompt('Во сколько это обойдётся?');
-amount2 = +prompt('Во сколько это обойдётся?');
+getNumberAmounts();
 //console.log('Бюджет на день: ', Math.floor(budgetDay));
 
 
