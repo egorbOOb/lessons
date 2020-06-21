@@ -69,3 +69,4 @@ const newParagraph = document.createElement('li');
 newParagraph.textContent = 'Глава 8: За пределами ES6';
 
 paragraphsThree.append(newParagraph);
+//
