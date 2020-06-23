@@ -173,14 +173,14 @@ let appData = {
         
     },
     checkSalaryAmount: function() {
-        start.setAttribute('disabled', 'disabled')
-        if (salaryAmountValue !== '') {
+        start.setAttribute('disabled', '')
+        if (salaryAmount.value !== '') {
             start.removeAttribute('disabled')
         }
     },
 };
 
-start.setAttribute('disabled', 'disabled');
+start.setAttribute('disabled', '');
 
 start.addEventListener('click', appData.start);
 
@@ -190,7 +190,7 @@ incomePlus.addEventListener('click', appData.addIncomeBlock);
 
 periodSelect.addEventListener('change', appData.getPeriodAmount);
 
-salarySAmount.addEventListener('input', checkSalaryAmount)
+salaryAmount.addEventListener('input', appData.checkSalaryAmount)
 
 
 
