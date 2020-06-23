@@ -44,9 +44,9 @@ let appData = {
     mission: 50000,
 
     start: function() {
-        if(salaryAmount.value === '') {
-            alert('Ошибка, поле "месячный доход" должно быть заполнено!')
-        };
+        // if(salaryAmount.value === '') {
+        //     alert('Ошибка, поле "месячный доход" должно быть заполнено!')
+        // };
 
         appData.budget = salaryAmount.value;
 
@@ -172,7 +172,15 @@ let appData = {
         })
         
     },
+    checkSalaryAmount: function() {
+        start.setAttribute('disabled', 'disabled')
+        if (salaryAmountValue !== '') {
+            start.removeAttribute('disabled')
+        }
+    },
 };
+
+start.setAttribute('disabled', 'disabled');
 
 start.addEventListener('click', appData.start);
 
@@ -181,6 +189,8 @@ expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 
 periodSelect.addEventListener('change', appData.getPeriodAmount);
+
+salarySAmount.addEventListener('input', checkSalaryAmount)
 
 
 
