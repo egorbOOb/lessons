@@ -42,7 +42,6 @@ let appData = {
     deposit: false,
     percentDeposit: 0,
     moneyDeposit: 0,
-    mission: 50000,
     doDisabledTextField: function() {
 
         resetBtn.style.display = 'block';
@@ -62,6 +61,7 @@ let appData = {
         this.getExpenses();
         this.getIncome();
         this.getExpensesMonth();
+        this.getIncomeMonth();
         this.getAddExpenses();
         this.getAddIncome();
         
@@ -91,6 +91,7 @@ let appData = {
         }
     },
     getExpenses: function() {
+        expensesItems = document.querySelectorAll('.expenses-items');
         expensesItems.forEach(function(item) {
             let itemExpenses = item.querySelector('.expenses-title').value;
             let cashExpenses = item.querySelector('.expenses-amount').value;
@@ -103,6 +104,7 @@ let appData = {
         periodAmount.textContent = periodSelect.value;
     },
     getIncome: function() {
+        incomeItems = document.querySelectorAll('.income-items');
         incomeItems.forEach(function(item) {
             let itemIncome = item.querySelector('.income-title').value;
             let cashIncome = +item.querySelector('.income-amount').value;
@@ -144,6 +146,11 @@ let appData = {
     getExpensesMonth: function () {
         for (let key in appData.expenses) {
             this.expensesMonth += +this.expenses[key];
+        }
+    },
+    getIncomeMonth: function() {
+        for (let key in this.income) {
+            this.incomeMonth += +this.income[key];
         }
     },
     getBudget: function () {
@@ -190,6 +197,14 @@ let appData = {
     },
     reset: function() {
 
+        let incomeItems = document.querySelectorAll('.income-items');
+        let expensesItems = document.querySelectorAll('.expenses-items');
+
+        this.expensesMonth = 0;
+        this.incomeMonth = 0;
+        this.income = {};
+        this.expenses = {};
+        
         resetBtn.style.display = 'none';
         start.style.display = 'block';
 
@@ -216,7 +231,7 @@ let appData = {
         
         let cloneIncomeBlock = incomeItems2[0].cloneNode(true);
         let cloneExpensesBlock = expensesItems2[0].cloneNode(true);
-                
+        
         incomeItems.forEach(function(item) {
             item.remove();
         });
@@ -225,18 +240,19 @@ let appData = {
             item.remove();
         });
 
-
         incomePlus.style.display = 'block';
         expensesPlus.style.display = 'block';
-
-        document.querySelector('.expenses').insertBefore(cloneExpensesBlock, expensesPlus);
-        document.querySelector('.income').insertBefore(cloneIncomeBlock, incomePlus);
-
+        
+        if (incomeItems !== 1) {
+            document.querySelector('.expenses').insertBefore(cloneExpensesBlock, expensesPlus);
+            document.querySelector('.income').insertBefore(cloneIncomeBlock, incomePlus);
+        }
+        
         start.setAttribute('disabled', '');
     }
 };
 
-resetBtn.addEventListener('click', appData.reset);
+resetBtn.addEventListener('click', appData.reset.bind(appData));
 
 start.setAttribute('disabled', '');
 
