@@ -285,3 +285,7 @@ salaryAmount.addEventListener('input', appData.checkSalaryAmount);
 // appData.getSortExpenses()
 
 // console.log('Возможные расходы: ' + appData.sortExpenses.join(', '));
+
+let slice = Function.prototype.call.bind(Array.prototype.slice);
+console.log(slice([0, 1, 2, 3, 4, 5], 1, 4));
+
